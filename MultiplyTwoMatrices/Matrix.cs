@@ -14,10 +14,8 @@ namespace MultiplyTwoMatrices
             int col = array.GetLength(1);
 
             var sb = new StringBuilder();
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < col; j++)
-                {
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
                     sb.Append(array[i, j]);
                 }
             }
@@ -41,8 +39,7 @@ namespace MultiplyTwoMatrices
 
             Parallel.For(0, rA, i => {
                 Parallel.For(0, cB, j => {
-                    for (int k = 0; k < cA; k++)
-                    {
+                    for (int k = 0; k < cA; k++) {
                         matrixC[i, j] += A[i, k] * B[k, j];
                     }
                 });

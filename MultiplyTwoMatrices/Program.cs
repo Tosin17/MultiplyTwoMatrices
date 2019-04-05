@@ -10,7 +10,7 @@ namespace MultiplyTwoMatrices
         static int[,] matrixA = new int[Matrix.RowSize, Matrix.ColSize];
         static int[,] matrixB = new int[Matrix.RowSize, Matrix.ColSize];
 
-        static void Main(string[] args){
+        static void Main(string[] args) {
             Console.WriteLine("Starting.......................");
             var timer = new Stopwatch();
             timer.Start();
