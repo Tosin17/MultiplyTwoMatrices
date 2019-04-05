@@ -1,18 +1,19 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace some_csharp
+namespace MultiplyTwoMatrices
 {
     public static class Md5Encryption {
-        public static string MD5Hash(string str) {
-            StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(str));
+        public static string GetMd5Hash(string input) {
+            using (MD5 md5 = MD5.Create()) {
+                byte[] data = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sBuilder = new StringBuilder();
 
-            for (int i = 0; i < bytes.Length; i++) {
-                hash.Append(bytes[i].ToString("x2"));
+                for (int i = 0; i < data.Length; i++)
+                    sBuilder.Append(data[i].ToString("x2"));
+
+                return sBuilder.ToString();
             }
-            return hash.ToString();
         }
     }
  }

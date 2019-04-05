@@ -11,13 +11,5 @@ namespace MultiplyTwoMatrices
                 Console.WriteLine(i);
             }
         }
-
-        public static void LogInitializeResponse(PostMatrixModel init) {
-            Console.WriteLine($"Initialized: {init.Value}");
-        }
-
-        public static void LogPostResponse(PostMatrixModel post) {
-            Console.WriteLine($"Posted: {post.Value}");
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Net.Http;
+using System;
 
 namespace MultiplyTwoMatrices
 {
@@ -25,15 +26,13 @@ namespace MultiplyTwoMatrices
             return init;
         }
 
-        public static async Task<PostMatrixModel> PostMatrixAsync(string path, string hash) {
-            PostMatrixModel post = new PostMatrixModel();
+        public static async Task<Uri> PostMatrixAsync(string path, string hash) {
 
-            HttpResponseMessage response = await ApiClient.client.PutAsJsonAsync(path, hash);
+            HttpResponseMessage response = await ApiClient.client.PostAsync(path, new StringContent(hash));
             response.EnsureSuccessStatusCode();
 
-            post = await response.Content.ReadAsAsync<PostMatrixModel>();
 
-            return post;
+            return response.Headers.Location;
         }
     }
 }
