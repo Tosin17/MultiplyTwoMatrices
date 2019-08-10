@@ -9,7 +9,7 @@ namespace MultiplyTwoMatrices
 
         public static void initializeApiClient() {
             client = new HttpClient();
-            client.BaseAddress = new Uri("http://recruitment-test.investcloud.com/");
+            client.BaseAddress = new Uri("http://matrix-api/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
